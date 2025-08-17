@@ -1,4 +1,7 @@
 # 📅 30 Days Terraform + AWS Challenge (GitHub Portfolio Plan)
+
+![Terraform AWS Challenge Architecture](./images/30-day-terraform-AWS-portfolio.jpg)
+
 ## Phase 1: Basics (Day 1–7)
 
 ### 👉 Terraform setup + simple AWS resources
