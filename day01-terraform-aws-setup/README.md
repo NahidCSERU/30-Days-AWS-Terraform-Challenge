@@ -41,4 +41,3 @@ day01-terraform-aws-setup/
 
 * terraform validate should show:  
     Success! The configuration is valid.
-*Enter AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, region, and output format*
