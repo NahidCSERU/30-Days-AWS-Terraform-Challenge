@@ -23,3 +23,13 @@ resource "aws_subnet" "public_subnet" {
     Name = "day07-public-subnet"
   }
 }
+# -------------------
+# Internet Gateway
+# -------------------
+resource "aws_internet_gateway" "gw" {
+  vpc_id = aws_vpc.main_vpc.id
+
+  tags = {
+    Name = "day07-igw"
+  }
+}
