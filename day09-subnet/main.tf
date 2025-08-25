@@ -23,3 +23,13 @@ resource "aws_subnet" "public_subnet" {
     Name = "day09-public-subnet"
   }
 }
+# Create Private Subnet
+resource "aws_subnet" "private_subnet" {
+  vpc_id            = aws_vpc.main.id
+  cidr_block        = var.private_subnet_cidr
+  availability_zone = var.az
+
+  tags = {
+    Name = "day09-private-subnet"
+  }
+}
