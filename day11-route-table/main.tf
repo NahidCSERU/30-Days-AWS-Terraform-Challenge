@@ -20,3 +20,15 @@ resource "aws_subnet" "public" {
   availability_zone = "us-east-1a"
   tags = { Name = "public-subnet" }
 }
+# 4. Route Table
+resource "aws_route_table" "public_rt" {
+  vpc_id = aws_vpc.main.id
+  tags = { Name = "public-rt" }
+}
+
+# 5. Route (0.0.0.0/0 -> Internet Gateway)
+resource "aws_route" "internet_access" {
+  route_table_id         = aws_route_table.public_rt.id
+  destination_cidr_block = "0.0.0.0/0"
+  gateway_id             = aws_internet_gateway.igw.id
+}
