@@ -8,9 +8,6 @@ This project demonstrates how to use **Terraform** to:
 5. Associate the Route Table with the Subnet ✅
 
 ---
-## 📊 Architecture Diagram
-
-![Architecture](../images/route_table_association.png)
 ## 📂 Project Structure
 ```
 day12-subnet-association/
