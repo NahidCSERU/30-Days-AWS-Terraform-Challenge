@@ -7,7 +7,7 @@
 # -----------------------------------------------------------------------------
 
 # Output file path
-REPORT_FILE="$HOME/disk-usage-project/reports/disk_usage_report.txt"
+REPORT_FILE="$HOME/day13-disk-usage-project/reports/disk_usage_report.txt"
 
 # Create reports directory if not exists
 mkdir -p "$(dirname "$REPORT_FILE")"
