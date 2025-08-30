@@ -6,5 +6,6 @@
 echo "SSH into Bastion:"
 echo "ssh -i your-key.pem ec2-user@<bastion-public-ip>"
 
-echo "Then SSH into Private EC2:"
+echo "Then SSH into Private EC2: "
 echo "ssh -i your-key.pem ec2-user@<private-private-ip> -o 'ProxyJump ec2-user@<bastion-public-ip>'"
+ 
