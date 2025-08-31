@@ -20,3 +20,14 @@ echo "✅ Created Volume: $VOLUME_ID"
 
 # Wait until volume is available
 aws ec2 wait volume-available --volume-ids $VOLUME_ID
+# 2️⃣ Attach volume to EC2
+aws ec2 attach-volume \
+  --volume-id $VOLUME_ID \
+  --instance-id $INSTANCE_ID \
+  --device /dev/sdf
+
+echo "✅ Attached Volume $VOLUME_ID to Instance $INSTANCE_ID"
+echo "👉 Now login to EC2 and run:"
+echo "   sudo mkfs -t ext4 /dev/xvdf"
+echo "   sudo mkdir -p /mnt/ebs"
+echo "   sudo mount /dev/xvdf /mnt/ebs"
