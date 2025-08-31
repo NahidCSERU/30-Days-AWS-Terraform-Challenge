@@ -1,33 +1,47 @@
-#!/bin/bash
-# Day-15: Simple script to create and attach an EBS volume to an EC2 instance
-# Usage: ./attach-ebs.sh <size-in-GB> <availability-zone> <instance-id>
-# Author: <Nahid Hasan>
-# Date: (31/08/2025)
+# 🚀 Day 15 – Attach EBS Volume to EC2 (Simple Project)
 
-SIZE=$1
-AZ=$2
-INSTANCE_ID=$3
+This project shows how to **create and attach an EBS volume** to an EC2 instance using a single Bash script.
 
-# 1️⃣ Create EBS Volume
-VOLUME_ID=$(aws ec2 create-volume \
-  --size $SIZE \
-  --availability-zone $AZ \
-  --volume-type gp3 \
-  --query 'VolumeId' \
-  --output text)
+---
 
-echo "✅ Created Volume: $VOLUME_ID"
+## 📂 Project Structure
+- `attach-ebs.sh` → Script to create & attach an EBS volume
+- `README.md` → Project documentation
 
-# Wait until volume is available
-aws ec2 wait volume-available --volume-ids $VOLUME_ID
-# 2️⃣ Attach volume to EC2
-aws ec2 attach-volume \
-  --volume-id $VOLUME_ID \
-  --instance-id $INSTANCE_ID \
-  --device /dev/sdf
+---
 
-echo "✅ Attached Volume $VOLUME_ID to Instance $INSTANCE_ID"
-echo "👉 Now login to EC2 and run:"
-echo "   sudo mkfs -t ext4 /dev/xvdf"
-echo "   sudo mkdir -p /mnt/ebs"
-echo "   sudo mount /dev/xvdf /mnt/ebs"
+## 🛠️ Prerequisites
+- AWS CLI installed & configured (`aws configure`)
+- An existing EC2 instance running
+
+---
+
+## ⚡ Usage
+Run the script:
+```
+./attach-ebs.sh <size-in-GB> <availability-zone> <instance-id>
+```
+Example:
+```
+./attach-ebs.sh 5 ap-south-1a i-0abcd1234efgh5678
+```
+## 📌 Inside EC2 (Format & Mount)
+
+After attaching, login to your EC2 instance and run:
+```
+sudo mkfs -t ext4 /dev/xvdf
+sudo mkdir -p /mnt/ebs
+sudo mount /dev/xvdf /mnt/ebs
+```
+Verify:
+```
+df -h
+lsblk
+```
+## 🎯 Learning Goals
+
+- Learn how to **create an EBS volume**
+
+- Learn how to **attach it to an EC2 instance**
+
+- Format & mount the volume inside Linux
