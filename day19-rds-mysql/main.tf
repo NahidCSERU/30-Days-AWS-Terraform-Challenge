@@ -43,7 +43,6 @@ resource "aws_db_instance" "mydb" {
   engine                  = "mysql"
   engine_version          = "8.0"
   instance_class          = var.db_instance_class
-  name                    = var.db_name
   username                = var.db_username
   password                = var.db_password
   db_subnet_group_name    = aws_db_subnet_group.rds_subnet_group.name
